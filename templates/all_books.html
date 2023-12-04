@@ -1,0 +1,29 @@
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>All books</title>
+  </head>
+  <body>
+      <h2>Books</h2>
+    <table border="1">
+     <colgroup span="2"></colgroup>
+      <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Year of Publication</th>
+        <th>Copies Printed</th>
+        <th>Description</th>
+      </tr>
+      {% for book in books %}
+        <tr>
+          <td>{{ book.title }}</td>
+          <td>{{ book.author_full_name }}</td>
+          <td>{{ book.year_of_publishing }}</td>
+          <td>{{ book.copies_printed }}</td>
+          <td>{{ book.short_description }}</td>
+        </tr>
+      {% endfor %}
+    </table> 
+  </body>
+</html>
