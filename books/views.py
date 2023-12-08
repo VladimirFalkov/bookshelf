@@ -28,7 +28,7 @@ def book_details_handler(request: HttpRequest, book_id: int) -> HttpResponse:
             "author_full_name": book.author_full_name,
             "isbn": book.year_of_publishing,
             "copies_printed": book.copies_printed,
-            "copies_printed": book.short_description,
+            "short_description": book.short_description,
         }
     )
 
