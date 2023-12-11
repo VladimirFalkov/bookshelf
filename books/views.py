@@ -1,7 +1,12 @@
-from django.http import HttpRequest, HttpResponse, JsonResponse, HttpResponseNotFound
+from django.http import (
+    HttpRequest,
+    HttpResponse,
+    JsonResponse,
+    HttpResponseNotFound,
+)
 
 
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Book
 
 
@@ -11,12 +16,12 @@ def get_all_books(request: HttpRequest):
 
 
 def get_detail_about_book(request: HttpRequest, book_id: int):
-    book = Book.objects.get(id=book_id)
+    book = get_object_or_404(Book, id=book_id)
     return render(request, "detail_book.html", context={"book": book})
 
 
 def book_details_handler(request: HttpRequest, book_id: int) -> HttpResponse:
-    book = Book.objects.get(id=book_id)
+    book = get_object_or_404(Book, id=book_id)
 
     if book is None:
         return HttpResponseNotFound()
